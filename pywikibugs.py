@@ -59,6 +59,10 @@ def is_gerrit_change(parsed_email):
     return parsed_email["email"] == "gerritadmin@wikimedia.org"
 
 def send_messages(bot, parsed_email):
+    # Ignore *all* gerrit changes. We don't even need them in the firehose
+    # since grrrit-wm exists there
+    if is_gerrit_change(parsed_email):
+        return
     sent_once = False
     # first, build the message
     for channel, channel_conf in channels.items():
@@ -69,7 +73,7 @@ def send_messages(bot, parsed_email):
             params = {}
         else:
             filter, params = channel_conf
-        if filter(parsed_email) and not is_gerrit_change(parsed_email):
+        if filter(parsed_email):
             msg = build_message(parsed_email, **params)
             bot.privmsg(channel, msg)
             sent_once = True

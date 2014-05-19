@@ -26,7 +26,7 @@ channels = {
             (
                 x.get("X-Bugzilla-Product", None) in ["MediaWiki extensions"] and
                 x.get("X-Bugzilla-Component", None) in
-                    ["UploadWizard", "TimedMediaHandler", "VipsScaler", "GlobalUsage", "MultimediaViewer"
+                    ["UploadWizard", "TimedMediaHandler", "VipsScaler", "GlobalUsage", "MultimediaViewer", "GWToolset",
                      "Score", "PagedTiffHandler", "PdfHandler", "ImageMap", "CommonsMetadata", "OggHandler"]
             ) or \
             (

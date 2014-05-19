@@ -33,8 +33,13 @@ channels = {
                 x.get("X-Bugzilla-Product", None) in ["MediaWiki"] and
                 x.get("X-Bugzilla-Component", None) in
                     ["File management", "Uploading"]
+            ),
+    "#wikimedia-growth":
+        lambda x:
+            (
+                x.get("X-Bugzilla-Product", None) in ["MediaWiki extensions"] and
+                x.get("X-Bugzilla-Component", None) in ["GuidedTour", "GettingStarted"]
             )
-
 }
 
 default_channel = "#wikimedia-dev"

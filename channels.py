@@ -20,7 +20,21 @@ channels = {
                       (x.get("X-Bugzilla-Component", None) in ["TemplateData"])
                   ),
     "#mediawiki-parsoid":
-        lambda x: x.get("X-Bugzilla-Product", None) in ["Parsoid"]
+        lambda x: x.get("X-Bugzilla-Product", None) in ["Parsoid"],
+    "#wikimedia-multimedia":
+        lambda x: \
+            (
+                x.get("X-Bugzilla-Product", None) in ["MediaWiki extensions"] and
+                x.get("X-Bugzilla-Component", None) in
+                    ["UploadWizard", "TimedMediaHandler", "VipsScaler", "GlobalUsage", "MultimediaViewer"
+                     "Score", "PagedTiffHandler", "PdfHandler", "ImageMap", "CommonsMetadata", "OggHandler"]
+            ) or \
+            (
+                x.get("X-Bugzilla-Product", None) in ["MediaWiki"] and
+                x.get("X-Bugzilla-Component", None) in
+                    ["File management", "Uploading"]
+            )
+
 }
 
 default_channel = "#wikimedia-dev"

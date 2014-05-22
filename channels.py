@@ -1,7 +1,7 @@
 channels = {
     "#huggle":
         lambda x: x.get("X-Bugzilla-Product", None) == "Huggle",
-    "#pywikipediabot":
+    "#pywikibot":
         lambda x: x.get("X-Bugzilla-Product", None) == "Pywikibot",
     "#wikimedia-corefeatures":
         lambda x: (x.get("X-Bugzilla-Product", None) == "MediaWiki extensions") and \

@@ -115,7 +115,7 @@ def build_message(parsed_email, hide_product=False):
         c = parsed_email["changes"]
         
         if "Status" in c or "Resolution" in c:
-            status_len = 3
+            status_len = 4
             reso_len = 3
             
             sbefore = c.get("Status", {'removed': parsed_email["X-Bugzilla-Status"]})['removed'][:status_len]

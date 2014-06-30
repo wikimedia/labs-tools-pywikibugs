@@ -6,6 +6,8 @@ channels = {
     "#wikimedia-corefeatures":
         lambda x: (x.get("X-Bugzilla-Product", None) == "MediaWiki extensions") and \
                   (x.get("X-Bugzilla-Component", None) in ["Echo", "Flow", "PageCuration", "Thanks", "WikiLove"]),
+    "#mediawiki-i18n":
+        lambda x: (x.get("X-Bugzilla-Component", None) in ["ContentTranslation"]),
     "#wikimedia-labs":
         lambda x: x.get("X-Bugzilla-Product", None) in ["Tool Labs tools", "Wikimedia Labs"],
     "#wikimedia-mobile":

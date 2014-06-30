@@ -5,7 +5,7 @@ channels = {
         lambda x: x.get("X-Bugzilla-Product", None) == "Pywikibot",
     "#wikimedia-corefeatures":
         lambda x: (x.get("X-Bugzilla-Product", None) == "MediaWiki extensions") and \
-                  (x.get("X-Bugzilla-Component", None) in ["Echo", "Flow", "LiquidThreads", "PageCuration", "Thanks", "WikiLove"]),
+                  (x.get("X-Bugzilla-Component", None) in ["Echo", "Flow", "PageCuration", "Thanks", "WikiLove"]),
     "#wikimedia-labs":
         lambda x: x.get("X-Bugzilla-Product", None) in ["Tool Labs tools", "Wikimedia Labs"],
     "#wikimedia-mobile":

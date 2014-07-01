@@ -25,7 +25,11 @@ channels = {
         lambda x: x.get("X-Bugzilla-Product", None) in ["VisualEditor", "OOjs", "OOjs UI"] or \
                   (
                       (x.get("X-Bugzilla-Product", None) == "MediaWiki extensions") and \
-                      (x.get("X-Bugzilla-Component", None) in ["TemplateData"])
+                      (x.get("X-Bugzilla-Component", None) in ["TemplateData", "Cite", "WikiEditor"])
+                  ) or \
+                  (
+                      (x.get("X-Bugzilla-Product", None) == "MediaWiki") and \
+                      (x.get("X-Bugzilla-Component", None) in ["Page editing", "ResourceLoader"])
                   ),
     "#mediawiki-parsoid":
         lambda x: x.get("X-Bugzilla-Product", None) in ["Parsoid"],
@@ -49,7 +53,12 @@ channels = {
                 x.get("X-Bugzilla-Component", None) in ["GuidedTour", "GettingStarted"]
             ),
     "#wikimedia-analytics":
-        lambda x: x.get("X-Bugzilla-Product", None) == "Analytics"
+        lambda x: x.get("X-Bugzilla-Product", None) == "Analytics",
+
+    # The following changes should ALWAYS be in #wikimedia-dev, even if the bugs
+    # are also reported elsewhere.
+    "#wikimedia-dev":
+        lambda x: x.get("X-Bugzilla-Product", None) == "MediaWiki"
 }
 
 default_channel = "#wikimedia-dev"

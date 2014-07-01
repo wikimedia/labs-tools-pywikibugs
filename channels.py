@@ -13,8 +13,14 @@ channels = {
     "#wikimedia-mobile":
         lambda x: x.get("X-Bugzilla-Product", None) in ["Wikimedia Mobile", "Commons App", "Wikipedia App", "MobileFrontend"],
     "#wikimedia-qa":
-        lambda x: (x.get("X-Bugzilla-Product", None) == "Wikimedia") and \
-                  (x.get("X-Bugzilla-Component", None) in ["Continuous integration", "Quality Assurance"]),
+        lambda x: (
+                      (x.get("X-Bugzilla-Product", None) == "Wikimedia") and \
+                      (x.get("X-Bugzilla-Component", None) in ["Continuous integration", "Quality Assurance"])
+                  ) or \
+                  (
+                      (x.get("X-Bugzilla-Product", None) == "Wikimedia Labs") and \
+                      (x.get("X-Bugzilla-Component", None) == ""deployment-prep (beta)")
+                  ),
     "#mediawiki-visualeditor":
         lambda x: x.get("X-Bugzilla-Product", None) in ["VisualEditor", "OOjs", "OOjs UI"] or \
                   (

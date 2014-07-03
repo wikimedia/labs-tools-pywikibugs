@@ -41,7 +41,9 @@ channels = {
             (
                 x.get("X-Bugzilla-Product", None) in ["MediaWiki extensions"] and
                 x.get("X-Bugzilla-Component", None) in ["GuidedTour", "GettingStarted"]
-            )
+            ),
+    "#wikimedia-analytics":
+        lambda x: x.get("X-Bugzilla-Product", None) == "Analytics"
 }
 
 default_channel = "#wikimedia-dev"

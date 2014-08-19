@@ -28,7 +28,14 @@ same. Making them find eachother is also not completely trivial.
 
 This will kill the current SGE job and start a new one.
 
-Please log this using ``!log local-wikibugs <message>`` in #wikimedia-labs.
+Please log this using ``!log tools.wikibugs <message>`` in #wikimedia-labs.
+
+#### Emergency fixes ####
+If you need to make any emergency adjustments, please remember to git commit & git review those.
+git review is set up to ask for username and password -- please use your shell username and
+the password at https://gerrit.wikimedia.org/r/#/settings/http-password to submit the change to
+gerrit. Don't forget to +2/+2 & merge it!
+
 
 ### Adding a new channel ###
 

@@ -19,7 +19,7 @@ channels = {
                   ) or \
                   (
                       (x.get("X-Bugzilla-Product", None) == "Wikimedia Labs") and \
-                      (x.get("X-Bugzilla-Component", None) == ""deployment-prep (beta)")
+                      (x.get("X-Bugzilla-Component", None) == "deployment-prep (beta)")
                   ),
     "#mediawiki-visualeditor":
         lambda x: x.get("X-Bugzilla-Product", None) in ["VisualEditor", "OOjs", "OOjs UI"] or \

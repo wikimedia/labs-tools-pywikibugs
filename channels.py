@@ -9,7 +9,11 @@ channels = {
     "#mediawiki-i18n":
         lambda x: (x.get("X-Bugzilla-Component", None) in ["ContentTranslation"]),
     "#wikimedia-labs":
-        lambda x: x.get("X-Bugzilla-Product", None) in ["Tool Labs tools", "Wikimedia Labs"],
+        lambda x: x.get("X-Bugzilla-Product", None) in ["Tool Labs tools", "Wikimedia Labs"] or \
+                  (
+                   (x.get("X-Bugzilla-Product", None) == "MediaWiki extensions") and \
+                   (x.get("X-Bugzilla-Component", None) in ["OpenStackManager"])
+                  ),
     "#wikimedia-mobile":
         lambda x: x.get("X-Bugzilla-Product", None) in ["Wikimedia Mobile", "Commons App", "Wikipedia App", "MobileFrontend"],
     "#wikimedia-qa":

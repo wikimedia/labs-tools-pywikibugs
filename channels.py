@@ -3,6 +3,18 @@ channels = {
         lambda x: x.get("X-Bugzilla-Product", None) == "Huggle",
     "#pywikibot":
         lambda x: x.get("X-Bugzilla-Product", None) == "Pywikibot",
+    "#wikidata":
+        lambda x: \
+            (
+                x.get("X-Bugzilla-Product", None) in ["MediaWiki extensions"] and
+                x.get("X-Bugzilla-Component", None) in
+                    ["WikidataRepo", "WikidataClient"]
+            ) or \
+            (
+                x.get("X-Bugzilla-Product", None) in ["Wikimedia"] and
+                x.get("X-Bugzilla-Component", None) in
+                    ["Wikidata"]
+            ),
     "#wikimedia-corefeatures":
         lambda x: (x.get("X-Bugzilla-Product", None) == "MediaWiki extensions") and \
                   (x.get("X-Bugzilla-Component", None) in ["Echo", "Flow", "PageCuration", "Thanks", "WikiLove"]),
